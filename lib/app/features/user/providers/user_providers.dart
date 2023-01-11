@@ -1,0 +1,20 @@
+import 'package:flutter_application_1/app/features/user/model/user_model.dart';
+import 'package:flutter_application_1/app/features/user/repository/user_repository.dart';
+import 'package:flutter_application_1/app/features/user/repository/user_repository_fake.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'user_providers.g.dart';
+
+@Riverpod(keepAlive: true)
+UserRepository userRepository(UserRepositoryRef ref) {
+  return UserRepositoryFake();
+}
+
+@riverpod
+Future<UserModel> getUserProvider(GetUserProviderRef ref) async {
+  final repository = ref.read(userRepositoryProvider);
+  return await repository.getUser();
+}
+
+final userStoreProvider = StateProvider<UserModel?>((ref) => null);
