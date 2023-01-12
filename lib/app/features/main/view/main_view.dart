@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/features/user/providers/user_controller.dart';
-import 'package:flutter_application_1/app/features/user/view/user_view.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:knotted_donut_tdd/app/features/user/providers/user_controller.dart';
+import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';
 
 class MainView extends ConsumerWidget {
   const MainView({super.key});

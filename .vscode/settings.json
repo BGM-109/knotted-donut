@@ -1,0 +1,20 @@
+{
+  // g, freezed 파일 중첩 활성화
+  "explorer.fileNesting.patterns": {
+    "*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  // 스크롤시 상단이 고정됨
+  "editor.stickyScroll.enabled": true,
+  // 위젯간의 Tree 라인 생성됨
+  "dart.previewFlutterUiGuides": true,
+  // 괄호들에 각각의 컬러가 생성되어 구분하기 좋아짐
+  "editor.bracketPairColorization.enabled": true,
+  // 저장시 포매팅
+  "editor.formatOnSave": true,
+  // 저장시 모든 에러 수정
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
+}

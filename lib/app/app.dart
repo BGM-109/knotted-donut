@@ -20,6 +20,7 @@ class App extends ConsumerWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       theme: appTheme.lightTheme,
       darkTheme: appTheme.darkTheme,
+      onGenerateTitle: (_) => "Knotted Donut",
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
       routerDelegate: router.routerDelegate,

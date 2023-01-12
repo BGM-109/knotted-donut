@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/app/features/user/model/user_model.dart';
+import 'package:knotted_donut_tdd/app/features/user/model/user_model.dart';
 
 import 'user_repository.dart';
 

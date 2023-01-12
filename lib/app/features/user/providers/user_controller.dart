@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/features/user/providers/user_providers.dart';
+import 'package:knotted_donut_tdd/app/features/user/providers/user_providers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_controller.g.dart';

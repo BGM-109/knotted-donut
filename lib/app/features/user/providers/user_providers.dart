@@ -1,7 +1,7 @@
-import 'package:flutter_application_1/app/features/user/model/user_model.dart';
-import 'package:flutter_application_1/app/features/user/repository/user_repository.dart';
-import 'package:flutter_application_1/app/features/user/repository/user_repository_fake.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:knotted_donut_tdd/app/features/user/model/user_model.dart';
+import 'package:knotted_donut_tdd/app/features/user/repository/user_repository.dart';
+import 'package:knotted_donut_tdd/app/features/user/repository/user_repository_fake.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_providers.g.dart';
