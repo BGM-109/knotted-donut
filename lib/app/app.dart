@@ -24,6 +24,7 @@ class App extends ConsumerWidget {
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
       routerDelegate: router.routerDelegate,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

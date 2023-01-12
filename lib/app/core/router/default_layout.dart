@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
+import 'package:knotted_donut_tdd/app/features/donut/view/donut_view.dart';
 import 'package:knotted_donut_tdd/app/features/main/view/main_view.dart';
-import 'package:knotted_donut_tdd/app/features/order/view/order_view.dart';
 import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';
 
 class DefaultLayout extends StatelessWidget {
@@ -13,9 +13,9 @@ class DefaultLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String location = GoRouter.of(context).location;
-    const List<String> constList = ["/", "/order", "/user"];
+    const List<String> constList = ["/", "/user"];
     int getCurrentIndex(String route) {
-      if (route.startsWith('/order')) return 1;
+      if (route.startsWith('/donut')) return 1;
       if (route.startsWith('/user')) return 2;
       return 0;
     }
@@ -26,12 +26,33 @@ class DefaultLayout extends StatelessWidget {
           context.goNamed(MainView.routeName);
           break;
         case 1:
-          context.goNamed(OrderView.routeName);
+          context.pushNamed(DonutView.routeName);
           break;
         case 2:
           context.goNamed(UserView.routeName);
           break;
       }
+    }
+
+    Widget buildCartIcon(String route) {
+      if (constList.contains(route)) {
+        return IconButton(
+            onPressed: () {
+              context.pushNamed(CartView.routeName);
+            },
+            icon: const Icon(Icons.shopping_bag));
+      }
+      return Container();
+    }
+
+    AppBar? buildAppBar(String route) {
+      if (constList.contains(route)) {
+        return AppBar(
+          title: Text(location),
+          actions: [buildCartIcon(location)],
+        );
+      }
+      return null;
     }
 
     Widget? buildBottomNav(String route) {
@@ -61,22 +82,8 @@ class DefaultLayout extends StatelessWidget {
       return null;
     }
 
-    Widget buildCartIcon(String route) {
-      if (constList.contains(route)) {
-        return IconButton(
-            onPressed: () {
-              context.pushNamed(CartView.routeName);
-            },
-            icon: const Icon(Icons.shopping_bag));
-      }
-      return Container();
-    }
-
     return Scaffold(
-        appBar: AppBar(
-          title: Text(location),
-          actions: [buildCartIcon(location)],
-        ),
+        appBar: buildAppBar(location),
         body: child,
         bottomNavigationBar: buildBottomNav(location));
   }

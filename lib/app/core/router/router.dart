@@ -4,9 +4,9 @@ import 'package:knotted_donut_tdd/app/core/router/default_layout.dart';
 import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
 import 'package:knotted_donut_tdd/app/features/checkout/view/checkout_result_view.dart';
 import 'package:knotted_donut_tdd/app/features/checkout/view/checkout_view.dart';
+import 'package:knotted_donut_tdd/app/features/donut/view/donut_view.dart';
 import 'package:knotted_donut_tdd/app/features/main/view/main_view.dart';
 import 'package:knotted_donut_tdd/app/features/not_found/page_not_found.dart';
-import 'package:knotted_donut_tdd/app/features/order/view/order_view.dart';
 import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';
 
 ///
@@ -31,9 +31,9 @@ final routerProvider = Provider<GoRouter>(
                 builder: (context, state) => const MainView(),
               ),
               GoRoute(
-                path: '/order',
-                name: OrderView.routeName,
-                builder: (context, state) => const OrderView(),
+                path: '/donut',
+                name: DonutView.routeName,
+                builder: (context, state) => const DonutView(),
               ),
               GoRoute(
                 path: '/user',
