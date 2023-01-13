@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,7 +18,19 @@ final routerNotifierProvider =
     ChangeNotifierProvider<RouterNotifier>((ref) => RouterNotifier());
 
 class RouterNotifier extends ChangeNotifier {
-  final bool isLoggedIn = false;
+  bool isLoggedIn = false;
+  set setLogin(bool value) => isLoggedIn = value;
+
+  RouterNotifier() {
+    if (FirebaseAuth.instance.currentUser != null) {
+      isLoggedIn = true;
+    }
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        isLoggedIn = false;
+      }
+    });
+  }
 }
 
 ///

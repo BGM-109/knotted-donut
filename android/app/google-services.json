@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "341707481053",
+    "project_id": "knotted-donut",
+    "storage_bucket": "knotted-donut.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341707481053:android:f8fae548d8c6ae3f20a034",
+        "android_client_info": {
+          "package_name": "com.example.flutter_knotted_tdd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341707481053-68cbm5ad8rq0mbgg33tcntvjjd3ic35q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqxyltwYCtgkQI0MxTLmWUGBPc-0X5wOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341707481053-68cbm5ad8rq0mbgg33tcntvjjd3ic35q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "341707481053-3dmt1vn7pp7m9vaum5pd2a8vt57fsnec.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sunmkim.KnottedDonut"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
