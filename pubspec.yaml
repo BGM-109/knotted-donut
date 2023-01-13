@@ -61,6 +61,7 @@ dev_dependencies:
     sdk: flutter
 
   intl: ^0.17.0
+  mocktail: ^0.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

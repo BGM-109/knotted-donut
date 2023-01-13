@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:knotted_donut_tdd/app/features/error_message/error_message_view.dart';
+import 'package:knotted_donut_tdd/app/features/error/error_message_view.dart';
 
 class AsyncValueWidget<T> extends StatelessWidget {
   const AsyncValueWidget({Key? key, required this.value, required this.data})

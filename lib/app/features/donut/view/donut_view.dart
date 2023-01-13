@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:knotted_donut_tdd/app/core/util/async_value_widget.dart';
+import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
 import 'package:knotted_donut_tdd/app/features/donut/model/donut_model.dart';
 import 'package:knotted_donut_tdd/app/features/donut/providers/donut_provider.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_category_chip.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_list_widget.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_widget.dart';
+import 'package:knotted_donut_tdd/app/features/search/view/search_view.dart';
 
 class DonutView extends ConsumerWidget {
   const DonutView({super.key});
@@ -27,13 +29,18 @@ class DonutView extends ConsumerWidget {
         decoration: const BoxDecoration(color: Color(0xffF4B2FF)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text("청담점",
+          children: [
+            const Text("청담점",
                 style: TextStyle(
                     color: Colors.white, fontWeight: FontWeight.w600)),
-            Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
+            IconButton(
+              onPressed: () {
+                context.goNamed(CartView.routeName);
+              },
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
             )
           ],
         ),
@@ -51,7 +58,13 @@ class DonutView extends ConsumerWidget {
               context.pop();
             },
             icon: const Icon(Icons.arrow_back_ios_new)),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.goNamed(SearchView.routeName);
+              },
+              icon: const Icon(Icons.search))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
