@@ -50,3 +50,13 @@ final getDonutProvider = AutoDisposeFutureProvider<List<DonutModel>>(
       const bool.fromEnvironment('dart.vm.product') ? null : _$getDonutHash,
 );
 typedef GetDonutRef = AutoDisposeFutureProviderRef<List<DonutModel>>;
+String _$getBestDonutHash() => r'8fba799a2ab0a3dae3c44b86cf8590a93c91e745';
+
+/// See also [getBestDonut].
+final getBestDonutProvider = AutoDisposeFutureProvider<List<DonutModel>>(
+  getBestDonut,
+  name: r'getBestDonutProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getBestDonutHash,
+);
+typedef GetBestDonutRef = AutoDisposeFutureProviderRef<List<DonutModel>>;

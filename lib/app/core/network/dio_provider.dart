@@ -12,7 +12,13 @@ final baseUrlProivder = Provider<String>((ref) {
 
 @riverpod
 Dio dio(DioRef ref) {
-  final dio = Dio();
+  final dio = Dio(
+    BaseOptions(
+      baseUrl: ref.read(baseUrlProivder),
+      connectTimeout: 5000,
+      receiveTimeout: 3000,
+    ),
+  );
   dio.interceptors.add(CustomInterceptors());
   return dio;
 }

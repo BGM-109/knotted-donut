@@ -5,10 +5,13 @@ import 'package:dio/dio.dart';
 part 'donut_repository.g.dart';
 
 // Insert uri
-@RestApi(baseUrl: '')
+@RestApi()
 abstract class DonutRepository {
   factory DonutRepository(Dio dio, {String baseUrl}) = _DonutRepository;
 
   @GET('/tYGmiOSRYfDqBJXM?tabId=donuts')
   Future<DataModel<DonutModel>> getDonuts();
+
+  @GET('/tYGmiOSRYfDqBJXM?tabId=best')
+  Future<DataModel<DonutModel>> getBestDonuts();
 }

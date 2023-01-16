@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_providers.dart';
+part of 'banner_providers.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,24 +29,34 @@ class _SystemHash {
   }
 }
 
-String _$authRepositoryHash() => r'd3ae5e3a1038da1ebf66dc733301302def31bce0';
+String _$bannerRepositoryHash() => r'e548c7e14a9be971adf419ae0d1e7045f017c06c';
 
-/// See also [authRepository].
-final authRepositoryProvider = Provider<AuthRepository>(
-  authRepository,
-  name: r'authRepositoryProvider',
+/// See also [bannerRepository].
+final bannerRepositoryProvider = Provider<BannerRepository>(
+  bannerRepository,
+  name: r'bannerRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$authRepositoryHash,
+      : _$bannerRepositoryHash,
 );
-typedef AuthRepositoryRef = ProviderRef<AuthRepository>;
-String _$getUserNameHash() => r'e10c4c1ab175d6cfd3f7ecba39231cc921cc24a7';
+typedef BannerRepositoryRef = ProviderRef<BannerRepository>;
+String _$getBannerHash() => r'da6de8ff44f86c4c7033a167bb9ccd7c179cef99';
 
-/// See also [getUserName].
-final getUserNameProvider = AutoDisposeProvider<String?>(
-  getUserName,
-  name: r'getUserNameProvider',
+/// See also [getBanner].
+final getBannerProvider = AutoDisposeFutureProvider<List<BannerModel>>(
+  getBanner,
+  name: r'getBannerProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$getUserNameHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getBannerHash,
 );
-typedef GetUserNameRef = AutoDisposeProviderRef<String?>;
+typedef GetBannerRef = AutoDisposeFutureProviderRef<List<BannerModel>>;
+String _$getInstagramHash() => r'07e797cfa68cfcc836699b6a44e959130c2e5b7c';
+
+/// See also [getInstagram].
+final getInstagramProvider = AutoDisposeFutureProvider<List<BannerModel>>(
+  getInstagram,
+  name: r'getInstagramProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getInstagramHash,
+);
+typedef GetInstagramRef = AutoDisposeFutureProviderRef<List<BannerModel>>;

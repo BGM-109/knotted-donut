@@ -27,3 +27,9 @@ final donutCategoryProivder =
 final donutViewProvider = StateProvider<bool>((ref) => true);
 
 final donutSearchProivder = StateProvider<String>((ref) => "");
+
+@riverpod
+Future<List<DonutModel>> getBestDonut(GetBestDonutRef ref) async {
+  final repository = ref.read(donutRepositoryProvider);
+  return await repository.getBestDonuts().then((response) => response.data);
+}

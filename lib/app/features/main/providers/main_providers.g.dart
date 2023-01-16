@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_providers.dart';
+part of 'main_providers.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,24 +29,14 @@ class _SystemHash {
   }
 }
 
-String _$authRepositoryHash() => r'd3ae5e3a1038da1ebf66dc733301302def31bce0';
+String _$getMainTopImageHash() => r'b9a650cfa327f9b86facf2adbb262aad7a4f43f6';
 
-/// See also [authRepository].
-final authRepositoryProvider = Provider<AuthRepository>(
-  authRepository,
-  name: r'authRepositoryProvider',
+/// See also [getMainTopImage].
+final getMainTopImageProvider = AutoDisposeProvider<String>(
+  getMainTopImage,
+  name: r'getMainTopImageProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$authRepositoryHash,
+      : _$getMainTopImageHash,
 );
-typedef AuthRepositoryRef = ProviderRef<AuthRepository>;
-String _$getUserNameHash() => r'e10c4c1ab175d6cfd3f7ecba39231cc921cc24a7';
-
-/// See also [getUserName].
-final getUserNameProvider = AutoDisposeProvider<String?>(
-  getUserName,
-  name: r'getUserNameProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$getUserNameHash,
-);
-typedef GetUserNameRef = AutoDisposeProviderRef<String?>;
+typedef GetMainTopImageRef = AutoDisposeProviderRef<String>;
