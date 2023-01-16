@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:knotted_donut_tdd/app/core/common/responsive_center.dart';
 import 'package:knotted_donut_tdd/app/features/donut/view/donut_view.dart';
 import 'package:knotted_donut_tdd/app/features/main/view/main_view.dart';
 import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';
@@ -49,21 +50,27 @@ class DefaultLayout extends StatelessWidget {
       if (constList.contains(route)) {
         return BottomNavigationBar(
           onTap: onTap,
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.black,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
           currentIndex: getCurrentIndex(location),
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.home,
+                  Icons.home_outlined,
                 ),
-                label: "Hoem"),
+                label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.shop,
+                  Icons.shopping_bag_outlined,
                 ),
                 label: "Order"),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.account_circle,
+                  Icons.account_circle_outlined,
                 ),
                 label: "User")
           ],
@@ -72,6 +79,8 @@ class DefaultLayout extends StatelessWidget {
       return null;
     }
 
-    return Scaffold(body: child, bottomNavigationBar: buildBottomNav(location));
+    return ResponsiveCenter(
+        child: Scaffold(
+            body: child, bottomNavigationBar: buildBottomNav(location)));
   }
 }

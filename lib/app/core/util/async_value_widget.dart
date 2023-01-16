@@ -12,7 +12,8 @@ class AsyncValueWidget<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return value.when(
       data: data,
-      error: (e, st) => Center(child: ErrorMessageView(msg: e.toString())),
+      error: (e, st) =>
+          const Center(child: ErrorMessageView(msg: "문제가 발생했습니다.")),
       loading: () => const Center(child: CircularProgressIndicator()),
     );
   }

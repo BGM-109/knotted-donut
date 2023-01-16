@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:knotted_donut_tdd/app/core/router/default_layout.dart';
+import 'package:knotted_donut_tdd/app/features/alarm/alarm_view.dart';
 import 'package:knotted_donut_tdd/app/features/auth/view/login_view.dart';
 import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
 import 'package:knotted_donut_tdd/app/features/checkout/view/checkout_result_view.dart';
@@ -73,10 +74,16 @@ final routerProvider = Provider<GoRouter>(
             },
             routes: [
               GoRoute(
-                path: '/',
-                name: MainView.routeName,
-                builder: (context, state) => const MainView(),
-              ),
+                  path: '/',
+                  name: MainView.routeName,
+                  builder: (context, state) => const MainView(),
+                  routes: [
+                    GoRoute(
+                      path: 'alarm',
+                      name: AlarmView.routeName,
+                      builder: (context, state) => const AlarmView(),
+                    ),
+                  ]),
               GoRoute(
                   path: '/donut',
                   name: DonutView.routeName,

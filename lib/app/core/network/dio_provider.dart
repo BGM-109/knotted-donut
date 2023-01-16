@@ -15,8 +15,6 @@ Dio dio(DioRef ref) {
   final dio = Dio(
     BaseOptions(
       baseUrl: ref.read(baseUrlProivder),
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
     ),
   );
   dio.interceptors.add(CustomInterceptors());
@@ -27,6 +25,7 @@ class CustomInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     log('REQUEST[${options.method}] => PATH: ${options.path}');
+
     return super.onRequest(options, handler);
   }
 
