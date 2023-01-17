@@ -14,4 +14,7 @@ abstract class DonutRepository {
 
   @GET('/tYGmiOSRYfDqBJXM?tabId=best')
   Future<DataModel<DonutModel>> getBestDonuts();
+
+  @GET('/tYGmiOSRYfDqBJXM?tabId=donuts&filterBy=id&filterValue={id}')
+  Future<DataModel<DonutModel>> getDonutDetail(@Path("id") String id);
 }

@@ -60,3 +60,72 @@ final getBestDonutProvider = AutoDisposeFutureProvider<List<DonutModel>>(
       const bool.fromEnvironment('dart.vm.product') ? null : _$getBestDonutHash,
 );
 typedef GetBestDonutRef = AutoDisposeFutureProviderRef<List<DonutModel>>;
+String _$getDonutDetailHash() => r'3b17c04f68ab257ec86487c10272516b4f40bc88';
+
+/// See also [getDonutDetail].
+class GetDonutDetailProvider extends AutoDisposeFutureProvider<DonutModel> {
+  GetDonutDetailProvider({
+    required this.id,
+  }) : super(
+          (ref) => getDonutDetail(
+            ref,
+            id: id,
+          ),
+          from: getDonutDetailProvider,
+          name: r'getDonutDetailProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getDonutDetailHash,
+        );
+
+  final String id;
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetDonutDetailProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+typedef GetDonutDetailRef = AutoDisposeFutureProviderRef<DonutModel>;
+
+/// See also [getDonutDetail].
+final getDonutDetailProvider = GetDonutDetailFamily();
+
+class GetDonutDetailFamily extends Family<AsyncValue<DonutModel>> {
+  GetDonutDetailFamily();
+
+  GetDonutDetailProvider call({
+    required String id,
+  }) {
+    return GetDonutDetailProvider(
+      id: id,
+    );
+  }
+
+  @override
+  AutoDisposeFutureProvider<DonutModel> getProviderOverride(
+    covariant GetDonutDetailProvider provider,
+  ) {
+    return call(
+      id: provider.id,
+    );
+  }
+
+  @override
+  List<ProviderOrFamily>? get allTransitiveDependencies => null;
+
+  @override
+  List<ProviderOrFamily>? get dependencies => null;
+
+  @override
+  String? get name => r'getDonutDetailProvider';
+}

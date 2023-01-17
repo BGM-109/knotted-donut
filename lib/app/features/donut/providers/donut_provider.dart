@@ -33,3 +33,14 @@ Future<List<DonutModel>> getBestDonut(GetBestDonutRef ref) async {
   final repository = ref.read(donutRepositoryProvider);
   return await repository.getBestDonuts().then((response) => response.data);
 }
+
+@riverpod
+Future<DonutModel> getDonutDetail(GetDonutDetailRef ref,
+    {required String id}) async {
+  final repository = ref.read(donutRepositoryProvider);
+  return await repository
+      .getDonutDetail(id)
+      .then((response) => response.data.first);
+}
+
+final detailCountProivder = StateProvider.autoDispose<int>((ref) => 1);

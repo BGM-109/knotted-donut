@@ -12,7 +12,7 @@ DataModel<T> _$DataModelFromJson<T>(
 ) =>
     DataModel<T>(
       data: (json['data'] as List<dynamic>).map(fromJsonT).toList(),
-      total: json['total'] as int,
+      total: json['total'] as int?,
     );
 
 Map<String, dynamic> _$DataModelToJson<T>(
