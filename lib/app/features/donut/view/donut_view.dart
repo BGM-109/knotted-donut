@@ -9,13 +9,20 @@ import 'package:knotted_donut_tdd/app/features/donut/widget/donut_category_chip.
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_list_widget.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_widget.dart';
 import 'package:knotted_donut_tdd/app/features/search/view/search_view.dart';
+import 'package:knotted_donut_tdd/app/features/store/providers/store_provider.dart';
 
 class DonutView extends ConsumerWidget {
-  const DonutView({super.key});
+  const DonutView({
+    super.key,
+  });
   static const String routeName = "donut";
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final location = ref.read(selectedStoreProvider);
+    if (location == null) {
+      return const Text("스토어 정보가 없습니다");
+    }
     // Get datas from restapi
     final donuts = ref.watch(getDonutProvider);
     // select category
@@ -30,8 +37,8 @@ class DonutView extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text("청담점",
-                style: TextStyle(
+            Text("${location.name}점",
+                style: const TextStyle(
                     color: Colors.white, fontWeight: FontWeight.w600)),
             IconButton(
               onPressed: () {

@@ -16,7 +16,8 @@ class CounterButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(99), color: Colors.black),
         child: Text(
           sign,
-          style: const TextStyle(color: Colors.white),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );

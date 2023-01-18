@@ -8,6 +8,14 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+      ),
       bottomNavigationBar: ElevatedButton(
           onPressed: () {
             context.goNamed(CheckOutView.routeName);

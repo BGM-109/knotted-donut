@@ -13,6 +13,8 @@ import 'package:knotted_donut_tdd/app/features/donut/view/donut_view.dart';
 import 'package:knotted_donut_tdd/app/features/main/view/main_view.dart';
 import 'package:knotted_donut_tdd/app/features/error/page_not_found.dart';
 import 'package:knotted_donut_tdd/app/features/search/view/search_view.dart';
+import 'package:knotted_donut_tdd/app/features/store/view/store_search_view.dart';
+import 'package:knotted_donut_tdd/app/features/store/view/store_view.dart';
 import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';
 
 final routerNotifierProvider =
@@ -85,22 +87,35 @@ final routerProvider = Provider<GoRouter>(
                     ),
                   ]),
               GoRoute(
-                  path: '/donut',
-                  name: DonutView.routeName,
-                  builder: (context, state) => const DonutView(),
+                  path: '/store',
+                  name: StoreView.routeName,
+                  builder: (context, state) => const StoreView(),
                   routes: [
                     GoRoute(
-                      path: ':id',
-                      name: DonutDetailView.routeName,
-                      builder: (context, state) {
-                        final id = state.params['id'];
-                        return DonutDetailView(id: id);
-                      },
-                    ),
+                        path: 'donut',
+                        name: DonutView.routeName,
+                        builder: (context, state) {
+                          return const DonutView();
+                        },
+                        routes: [
+                          GoRoute(
+                              path: ':id',
+                              name: DonutDetailView.routeName,
+                              builder: (context, state) {
+                                final id = state.params['id'];
+                                return DonutDetailView(id: id);
+                              },
+                              routes: const []),
+                          GoRoute(
+                            path: 'search',
+                            name: SearchView.routeName,
+                            builder: (context, state) => const SearchView(),
+                          ),
+                        ]),
                     GoRoute(
                       path: 'search',
-                      name: SearchView.routeName,
-                      builder: (context, state) => const SearchView(),
+                      name: StoreSearchView.routeName,
+                      builder: (context, state) => const StoreSearchView(),
                     ),
                   ]),
               GoRoute(

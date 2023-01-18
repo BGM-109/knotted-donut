@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:knotted_donut_tdd/app/core/common/responsive_center.dart';
-import 'package:knotted_donut_tdd/app/features/donut/view/donut_view.dart';
 import 'package:knotted_donut_tdd/app/features/main/view/main_view.dart';
+import 'package:knotted_donut_tdd/app/features/store/view/store_view.dart';
 import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';
 
 class DefaultLayout extends StatelessWidget {
@@ -13,10 +13,10 @@ class DefaultLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String location = GoRouter.of(context).location;
-    const List<String> constList = ["/", "/user"];
+    const List<String> constList = ["/", "/user", "/store"];
 
     int getCurrentIndex(String route) {
-      if (route.startsWith('/donut')) return 1;
+      if (route.startsWith('/store')) return 1;
       if (route.startsWith('/user')) return 2;
       return 0;
     }
@@ -27,24 +27,13 @@ class DefaultLayout extends StatelessWidget {
           context.goNamed(MainView.routeName);
           break;
         case 1:
-          context.pushNamed(DonutView.routeName);
+          context.goNamed(StoreView.routeName);
           break;
         case 2:
           context.goNamed(UserView.routeName);
           break;
       }
     }
-
-    // Widget buildCartIcon(String route) {
-    //   if (constList.contains(route)) {
-    //     return IconButton(
-    //         onPressed: () {
-    //           context.pushNamed(CartView.routeName);
-    //         },
-    //         icon: const Icon(Icons.shopping_bag));
-    //   }
-    //   return Container();
-    // }
 
     Widget? buildBottomNav(String route) {
       if (constList.contains(route)) {

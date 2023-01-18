@@ -14,7 +14,10 @@ class AsyncValueWidget<T> extends StatelessWidget {
       data: data,
       error: (e, st) =>
           const Center(child: ErrorMessageView(msg: "문제가 발생했습니다.")),
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => const Center(
+          child: CircularProgressIndicator(
+        color: Colors.black,
+      )),
     );
   }
 }

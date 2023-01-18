@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:knotted_donut_tdd/app/core/constants/colors.dart';
 import 'package:knotted_donut_tdd/app/core/util/async_value_widget.dart';
+import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
 import 'package:knotted_donut_tdd/app/features/donut/model/donut_model.dart';
 import 'package:knotted_donut_tdd/app/features/donut/providers/donut_provider.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/counter_button.dart';
@@ -31,7 +33,10 @@ class DonutDetailView extends ConsumerWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined)),
+              onPressed: () {
+                context.pushNamed(CartView.routeName);
+              },
+              icon: const Icon(Icons.shopping_cart_outlined)),
         ],
       ),
       body: Center(
