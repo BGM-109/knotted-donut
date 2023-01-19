@@ -10,6 +10,7 @@ import 'package:knotted_donut_tdd/app/features/donut/widget/donut_list_widget.da
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_widget.dart';
 import 'package:knotted_donut_tdd/app/features/search/view/search_view.dart';
 import 'package:knotted_donut_tdd/app/features/store/providers/store_provider.dart';
+import 'package:knotted_donut_tdd/app/features/store/widget/store_name_widget.dart';
 
 class DonutView extends ConsumerWidget {
   const DonutView({
@@ -31,25 +32,16 @@ class DonutView extends ConsumerWidget {
     final isGrid = ref.watch(donutViewProvider);
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.fromLTRB(24, 24, 24, 36),
-        decoration: const BoxDecoration(color: Color(0xffF4B2FF)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("${location.name}점",
-                style: const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.w600)),
-            IconButton(
-              onPressed: () {
-                context.goNamed(CartView.routeName);
-              },
-              icon: const Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-            )
-          ],
+      bottomNavigationBar: StoreNameWidget(
+        storeName: location.name,
+        trailing: IconButton(
+          onPressed: () {
+            context.pushNamed(CartView.routeName);
+          },
+          icon: const Icon(
+            Icons.shopping_cart,
+            color: Colors.white,
+          ),
         ),
       ),
       appBar: AppBar(
@@ -68,7 +60,7 @@ class DonutView extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-                context.goNamed(SearchView.routeName);
+                context.pushNamed(SearchView.routeName);
               },
               icon: const Icon(Icons.search))
         ],

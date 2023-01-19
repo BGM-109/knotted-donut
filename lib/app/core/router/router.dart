@@ -106,12 +106,12 @@ final routerProvider = Provider<GoRouter>(
                                 return DonutDetailView(id: id);
                               },
                               routes: const []),
-                          GoRoute(
-                            path: 'search',
-                            name: SearchView.routeName,
-                            builder: (context, state) => const SearchView(),
-                          ),
                         ]),
+                    GoRoute(
+                      path: 'donut_search',
+                      name: SearchView.routeName,
+                      builder: (context, state) => const SearchView(),
+                    ),
                     GoRoute(
                       path: 'search',
                       name: StoreSearchView.routeName,

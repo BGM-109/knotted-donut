@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cart_controller.dart';
+part of 'firestore_cart_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,20 +29,15 @@ class _SystemHash {
   }
 }
 
-String _$CartControllerHash() => r'07fed3913a47adf10bdb3190bf07b2a0d7af4aed';
+String _$firestoreRemoteRepositoryHash() =>
+    r'b03dc90c81d2fc72ba283ddb2814d6a1459685c8';
 
-/// See also [CartController].
-final cartControllerProvider =
-    AutoDisposeAsyncNotifierProvider<CartController, dynamic>(
-  CartController.new,
-  name: r'cartControllerProvider',
+/// See also [firestoreRemoteRepository].
+final firestoreRemoteRepositoryProvider = Provider<FirestoreRemoteRepository>(
+  firestoreRemoteRepository,
+  name: r'firestoreRemoteRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$CartControllerHash,
+      : _$firestoreRemoteRepositoryHash,
 );
-typedef CartControllerRef = AutoDisposeAsyncNotifierProviderRef<dynamic>;
-
-abstract class _$CartController extends AutoDisposeAsyncNotifier<dynamic> {
-  @override
-  FutureOr<dynamic> build();
-}
+typedef FirestoreRemoteRepositoryRef = ProviderRef<FirestoreRemoteRepository>;

@@ -8,6 +8,7 @@ class CheckOutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("주문 하기")),
       bottomNavigationBar: ElevatedButton(
           onPressed: () {
             context.goNamed(CheckoutResultView.routeName);

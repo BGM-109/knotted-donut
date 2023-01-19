@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cart_providers.dart';
+part of 'cart_service.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,14 +29,13 @@ class _SystemHash {
   }
 }
 
-String _$cartRepositoryHash() => r'4cfe113aa7a2dd32264d51a1efbfb86b83db9150';
+String _$cartServiceHash() => r'4a11ec6394d2a873f08c7a91c072ff7986a42b97';
 
-/// See also [cartRepository].
-final cartRepositoryProvider = Provider<CartRepository>(
-  cartRepository,
-  name: r'cartRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$cartRepositoryHash,
+/// See also [cartService].
+final cartServiceProvider = AutoDisposeProvider<CartService>(
+  cartService,
+  name: r'cartServiceProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$cartServiceHash,
 );
-typedef CartRepositoryRef = ProviderRef<CartRepository>;
+typedef CartServiceRef = AutoDisposeProviderRef<CartService>;

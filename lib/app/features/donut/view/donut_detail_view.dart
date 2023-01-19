@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:knotted_donut_tdd/app/core/constants/colors.dart';
+import 'package:knotted_donut_tdd/app/core/common/styled_bottom_button.dart';
 import 'package:knotted_donut_tdd/app/core/util/async_value_widget.dart';
+import 'package:knotted_donut_tdd/app/features/cart/providers/cart_controller.dart';
 import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
+import 'package:knotted_donut_tdd/app/features/cart/widget/add_to_cart_button.dart';
+import 'package:knotted_donut_tdd/app/features/checkout/view/checkout_view.dart';
 import 'package:knotted_donut_tdd/app/features/donut/model/donut_model.dart';
 import 'package:knotted_donut_tdd/app/features/donut/providers/donut_provider.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/counter_button.dart';
@@ -22,6 +25,13 @@ class DonutDetailView extends ConsumerWidget {
     }
     final detail = ref.watch(getDonutDetailProvider(id: id!));
     final counter = ref.watch(detailCountProivder);
+    final controller = ref.watch(cartControllerProvider);
+    ref.listen<AsyncValue>((cartControllerProvider), (_, state) {
+      state.whenOrNull(
+        error: ((error, stackTrace) => ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(error.toString())))),
+      );
+    });
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -110,37 +120,29 @@ class DonutDetailView extends ConsumerWidget {
           children: [
             Expanded(
                 flex: 1,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: Palette.kPinkAccent),
-                    onPressed: () {},
-                    child: const Text(
-                      "장바구니",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700),
-                    ))),
+                child: AddToCartButton(
+                  onPressed: () {
+                    if (controller.isLoading) return;
+                    ref.read(cartControllerProvider.notifier).addItem(id!);
+                  },
+                  isLoading: controller.isLoading,
+                  productId: id!,
+                )),
             const SizedBox(
               width: 20,
             ),
             Expanded(
-                flex: 1,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: Palette.kPink),
-                    onPressed: () {},
-                    child: const Text(
-                      "바로주문",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                    ))),
+              flex: 1,
+              child: StyledBottomButton(
+                onPressed: () {
+                  context.pushNamed(CheckOutView.routeName);
+                },
+                child: const Text(
+                  "바로주문",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                ),
+              ),
+            )
           ],
         ),
       ),
