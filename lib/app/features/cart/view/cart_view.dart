@@ -11,7 +11,7 @@ class CartView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final store = ref.watch(selectedStoreProvider);
     if (store == null) {
-      return const Text("가게 저옵가 없습니다");
+      return const Text("가게 정보가 없습니다");
     }
 
     return Scaffold(

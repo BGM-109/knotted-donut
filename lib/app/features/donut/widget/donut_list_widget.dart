@@ -27,8 +27,8 @@ class DonutListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context
-            .goNamed(DonutDetailView.routeName, params: {'id': id.toString()});
+        context.pushNamed(DonutDetailView.routeName,
+            params: {'id': id.toString()});
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

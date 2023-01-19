@@ -45,16 +45,18 @@ class CartService {
     final StoreModel? currentStore = ref.read(selectedStoreProvider);
     if (currentStore == null) {
       // 정보 없음 에러
+      throw Error();
     }
-    if (cart.storeName != currentStore?.name) {
+    if (cart.storeName != currentStore.name) {
       // 매장이 다름을 알리는 에러
+      throw Error();
     }
 
     if (cart.storeName == "") {
-      return cart.setStore(currentStore!.name);
+      return cart.setStore(currentStore.name);
     }
 
-    return cart.setStore(currentStore!.name);
+    return cart.setStore(currentStore.name);
   }
 
   // 카트에 아이템 추가

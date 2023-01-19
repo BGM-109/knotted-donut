@@ -43,4 +43,8 @@ Future<DonutModel> getDonutDetail(GetDonutDetailRef ref,
       .then((response) => response.data.first);
 }
 
+// 디테일 제품 수량 컨트롤러
 final detailCountProivder = StateProvider.autoDispose<int>((ref) => 1);
+
+// 검색 텍스트
+final productSearchTextProvider = StateProvider<String?>((ref) => "");

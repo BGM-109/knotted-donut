@@ -23,23 +23,28 @@ class StoreSearchView extends ConsumerWidget {
                 : data
                     .where((element) => element.name.contains(keyword))
                     .toList();
-            return ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              children: [
-                ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: filterd.length,
-                  itemBuilder: (context, index) {
-                    return StoreWidget.fromModel(filterd[index], () {
-                      ref.read(selectedStoreProvider.notifier).state =
-                          data[index];
-                      context.goNamed(DonutView.routeName);
-                    });
-                  },
-                ),
-              ],
-            );
+            return filterd.isEmpty
+                ? const Center(
+                    child: Text("검색 결과가 없습니다"),
+                  )
+                : ListView(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 24),
+                    children: [
+                      ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: filterd.length,
+                        itemBuilder: (context, index) {
+                          return StoreWidget.fromModel(filterd[index], () {
+                            ref.read(selectedStoreProvider.notifier).state =
+                                data[index];
+                            context.goNamed(DonutView.routeName);
+                          });
+                        },
+                      ),
+                    ],
+                  );
           });
     }
 
