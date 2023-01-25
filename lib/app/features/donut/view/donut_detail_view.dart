@@ -6,6 +6,7 @@ import 'package:knotted_donut_tdd/app/core/util/async_value_widget.dart';
 import 'package:knotted_donut_tdd/app/features/cart/providers/cart_controller.dart';
 import 'package:knotted_donut_tdd/app/features/cart/view/cart_view.dart';
 import 'package:knotted_donut_tdd/app/features/cart/widget/add_to_cart_button.dart';
+import 'package:knotted_donut_tdd/app/features/cart/widget/total_price_widget.dart';
 import 'package:knotted_donut_tdd/app/features/checkout/view/checkout_view.dart';
 import 'package:knotted_donut_tdd/app/features/donut/model/donut_model.dart';
 import 'package:knotted_donut_tdd/app/features/donut/providers/donut_provider.dart';
@@ -64,6 +65,7 @@ class DonutDetailView extends ConsumerWidget {
                               Row(
                                 children: [
                                   CounterButton(
+                                    size: 20,
                                     onPressed: () {
                                       if (counter <= 1) return;
                                       ref
@@ -83,6 +85,7 @@ class DonutDetailView extends ConsumerWidget {
                                     width: 12,
                                   ),
                                   CounterButton(
+                                      size: 20,
                                       onPressed: () {
                                         ref
                                             .read(detailCountProivder.notifier)
@@ -93,23 +96,9 @@ class DonutDetailView extends ConsumerWidget {
                               ),
                             ],
                           )),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "상품 금액",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500),
-                          ),
-                          Text(
-                            "${data.price * counter}원",
-                            style: const TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                          )
-                        ],
-                      )
+                      TotalPriceWidget(
+                        totalPrice: data.price * counter,
+                      ),
                     ],
                   ),
                 )),

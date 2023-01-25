@@ -12,7 +12,7 @@ import 'package:knotted_donut_tdd/app/features/donut/view/donut_detail_view.dart
 import 'package:knotted_donut_tdd/app/features/donut/view/donut_view.dart';
 import 'package:knotted_donut_tdd/app/features/main/view/main_view.dart';
 import 'package:knotted_donut_tdd/app/features/error/page_not_found.dart';
-import 'package:knotted_donut_tdd/app/features/search/view/search_view.dart';
+import 'package:knotted_donut_tdd/app/features/donut/view/search_view.dart';
 import 'package:knotted_donut_tdd/app/features/store/view/store_search_view.dart';
 import 'package:knotted_donut_tdd/app/features/store/view/store_view.dart';
 import 'package:knotted_donut_tdd/app/features/user/view/user_view.dart';

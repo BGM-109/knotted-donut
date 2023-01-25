@@ -8,7 +8,7 @@ import 'package:knotted_donut_tdd/app/features/donut/providers/donut_provider.da
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_category_chip.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_list_widget.dart';
 import 'package:knotted_donut_tdd/app/features/donut/widget/donut_widget.dart';
-import 'package:knotted_donut_tdd/app/features/search/view/search_view.dart';
+import 'package:knotted_donut_tdd/app/features/donut/view/search_view.dart';
 import 'package:knotted_donut_tdd/app/features/store/providers/store_provider.dart';
 import 'package:knotted_donut_tdd/app/features/store/widget/store_name_widget.dart';
 
